@@ -9,7 +9,7 @@ from theme import *
 
 class File:
     def __init__(self):
-        self.file_counter = 0
+
         self.filemenu = Menu(menubar.toolbar, tearoff=False)
         self.binding_keys()
 
@@ -50,7 +50,7 @@ class File:
             txt.insert("1.0", f.read())
             txt.pack()
             tb.pack()
-            self.file_counter += 1
+
         except:
             return
 
@@ -105,8 +105,9 @@ class File:
         for current_tab in w.tab.notebook.winfo_children():
             if str(current_tab) == w.tab.notebook.select():
                 current_tab.destroy()
-                self.file_counter -= 1
-                return
+                return 
+
+  
 
     def exit(self):
         exit_win = Toplevel(w.root)
