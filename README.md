@@ -1,6 +1,6 @@
 # Flash-Text-Editor
 
-## Installation:
+## Installation
 
 ttkthemes==3.1.1
 
