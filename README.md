@@ -1,5 +1,13 @@
 # Flash-Text-Editor
 
+## Installation:
+
+ttkthemes==3.1.1
+
+PyAutoGUI==0.9.50
+
+keyboard==0.13.5
+
 ## What is Flash Text Editor?
 Is a text editor that is easy to use, with variety of options, it is called "Flash" because it is light text editor.
 
