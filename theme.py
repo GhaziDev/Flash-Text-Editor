@@ -34,7 +34,7 @@ class Themes:
         s = ThemedStyle(w.root)
         s.theme_use("black")
         txtconfig.background = "gray20"
-        txtconfig.foreground = "black"
+        txtconfig.foreground = "white"
         txtconfig.insertbackground = "white"
         for i in w.tab.txt_collection:
             i.config(
