@@ -4,7 +4,7 @@
 
 #### For both windows and linux:
 
-- ``pip install requirements.txt``
+- ``python -m pip install requirements.txt``
 
 - In the terminal/cmd, run ``setup.py`` like this: ``python setup.py``
 
