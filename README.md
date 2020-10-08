@@ -2,11 +2,13 @@
 
 ## Installation
 
-ttkthemes==3.1.1
+#### For both windows and linux:
 
-PyAutoGUI==0.9.50
+- ``pip install requirements.txt``
 
-keyboard==0.13.5
+- In the terminal/cmd, run ``setup.py`` like this: ``python setup.py``
+
+
 
 ## What is Flash Text Editor?
 Is a text editor that is easy to use, with variety of options, it is called "Flash" because it is light text editor.
