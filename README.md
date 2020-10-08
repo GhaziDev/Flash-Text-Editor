@@ -25,15 +25,25 @@ The structure of this project is based on classes , and there is composition rel
 Lets start exploring the text editor:
 - ### File:
 - #### New file:
-https://imgur.com/a/zNKxb2w
+
+![New File](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/newfile.gif)
+
 - #### Open File:
-https://imgur.com/a/9kVqD65
+
+![Open File](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/openfile.gif)
+
 - #### Save as:
-https://imgur.com/a/IE09ucI
+
+![Save as](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/saveas.gif)
+
+
 - #### Close File:
-https://imgur.com/a/ukaDncZ
+
+![Close File](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/closefile.gif)
+
 - #### Exit:
-https://imgur.com/a/r0VInRD
+
+![Exit](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/exit.gif)
 
 
 Now for the second menu which is "Edit":
@@ -59,10 +69,13 @@ each of them has their own key (for example copy->ctrl+c, which is well known)
 Now for View menu:
 
 - #### Font Size:
-https://imgur.com/a/vzy0Eds
+
+![Font Size](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/font%20size.gif)
 
 - #### Font Family:
-https://imgur.com/a/2EayYrZ
+
+![Font Family](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/font%20family.gif)
+
 
 *Note: The reason i chose "Font size" rather than "zooming in and out" is because tkinter doesnt have a real zooming option, so font size was the best option out there.
 
@@ -70,26 +83,37 @@ https://imgur.com/a/2EayYrZ
 Search menu:
 
 - #### Find... :
-https://imgur.com/a/lH9fA5n
+
+![Find](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/find.gif)
+
 
 - #### Find and Replace:
-https://imgur.com/a/UX83QdX
+
+![Find and Replace](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/find%20and%20replace.gif)
+
 
 *On a side note, Find all might be slow if you are writing a very big program,because for now the functionality works on while loop.
 
 Finally we have Theme menu:
 - #### Text Color:
-https://imgur.com/a/KLmFyUe
+
+![Text Color](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/textcolor.gif)
 
 
 - #### Cursor Color:
-https://imgur.com/a/NTLNd23
+
+![Cursor Color](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/Cursor.gif)
+
 
 - #### Selector Color:
-https://imgur.com/a/rikaLPW
+
+![Selector Color](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/Selector.gif)
+
 
 - #### themes:
-https://imgur.com/a/C1pCPrL
+
+![themes](https://github.com/ghazigamer/Flash-Text-Editor/blob/master/gifs/Themes.gif)
+
 
 
 ## Great, that was a small tour to the text editor, back to some disscussions:
