@@ -2,9 +2,8 @@ import os
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
-from window import *
-from menubar import *
-from theme import *
+from window import w
+from menubar import menubar
 
 
 class File:
@@ -99,7 +98,6 @@ class File:
         )
         txt.pack()
         tb.pack()
-        t = Themes()
 
     def close_file(self):
         for current_tab in w.tab.notebook.winfo_children():

@@ -1,8 +1,8 @@
 from tkinter import ttk
 from tkinter import *
 import keyboard
-from window import *
-from menubar import *
+from window import w
+from menubar import menubar
 
 
 class Search:

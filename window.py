@@ -1,5 +1,5 @@
 from tkinter import *
-from tab import *
+from tab import Tab
 
 
 class Window:

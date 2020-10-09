@@ -1,8 +1,8 @@
 from tkinter import ttk
 from tkinter import *
 from tkinter import font
-from window import *
-from menubar import *
+from window import w
+from menubar import menubar
 
 
 class View:
@@ -31,7 +31,7 @@ class View:
     def set_size_command(self):
         self.font_size.add_radiobutton(
             label="15px(Default)",
-            command=lambda: self.size_and_family(txtconfig.font_family, 16),
+            command=lambda: self.size_and_family(txtconfig.font_family, 15),
         )
         self.font_size.add_radiobutton(
             label="20px",

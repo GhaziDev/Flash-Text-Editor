@@ -1,10 +1,11 @@
+from tkinter import *
 from tkinter import ttk
-from window import *
-from menubar import *
+from window import w
+from menubar import menubar
 from search import Search
 from ttkthemes import ThemedStyle
 from tkinter import colorchooser
-from textconfig import *
+from textconfig import txtconfig
 
 
 class Themes:

@@ -1,10 +1,9 @@
 import os
 from tkinter import ttk
 from tkinter import *
-import pyautogui
 import keyboard
-from window import *
-from menubar import *
+from window import w
+from menubar import menubar
 
 
 class Edit:

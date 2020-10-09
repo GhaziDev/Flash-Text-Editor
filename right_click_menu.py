@@ -1,5 +1,5 @@
 from tkinter import *
-from window import *
+from window import w
 import keyboard
 from files import File
 from edit import Edit

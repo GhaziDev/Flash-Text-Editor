@@ -1,14 +1,14 @@
 from tkinter import ttk
 from tkinter import *
-from window import *
-from menubar import *
+from window import w
+from menubar import menubar
 from tkinter import messagebox
-from right_click_menu import *
+from right_click_menu import rcm
 from edit import Edit
 from view import View
 from search import Search
 from files import File
-from theme import *
+from theme import Themes
 
 t = Themes()
 f = File()

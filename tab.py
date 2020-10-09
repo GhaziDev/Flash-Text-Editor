@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from textconfig import *
+from textconfig import txtconfig
 
 
 class Tab:
