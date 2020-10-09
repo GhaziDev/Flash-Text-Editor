@@ -15,17 +15,17 @@ class File:
 
     def file_menu(self):
         self.filemenu.add_command(
-            label="New file        Ctrl+N", command=lambda: self.new_file()
+            label="New file", command=lambda: self.new_file(),accelerator='Ctrl+N'
         )
         self.filemenu.add_command(
-            label="Open File      Ctrl+O", command=lambda: self.open_file()
+            label="Open File", command=lambda: self.open_file(),accelerator='Ctrl+O'
         )
         # self.filemenu.add_command(label='Save              Ctrl+S',command=lambda:self.save_file())
         self.filemenu.add_command(
-            label="Save as         Ctrl+Shift+S", command=lambda: self.save_file_as()
+            label="Save as", command=lambda: self.save_file_as(),accelerator='Ctrl+Shift+S'
         )
         self.filemenu.add_command(
-            label="Close file      Ctrl+K", command=lambda: self.close_file()
+            label="Close file", command=lambda: self.close_file(),accelerator='Ctrl+K'
         )
         self.filemenu.add_command(label="Exit", command=lambda: self.exit())
         menubar.toolbar.add_cascade(label="File", menu=self.filemenu)

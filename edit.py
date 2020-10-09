@@ -12,22 +12,22 @@ class Edit:
         self.edit = Menu(menubar.toolbar, tearoff=False)
 
     def edit_menu(self):
-        self.edit.add_command(label="Copy          Ctrl+c", command=lambda: self.copy())
+        self.edit.add_command(label="Copy", command=lambda: self.copy(),accelerator='Ctrl+C')
         self.edit.add_command(
-            label="Paste          Ctrl+v", command=lambda: self.paste()
+            label="Paste", command=lambda: self.paste(),accelerator='Ctrl+V'
         )
         self.edit.add_command(
-            label="Cut             Ctrl+x", command=lambda: self.cut()
+            label="Cut", command=lambda: self.cut(),accelerator='Ctrl+X'
         )
         self.edit.add_command(
-            label="Redo           Ctrl+y", command=lambda: self.redo()
+            label="Redo", command=lambda: self.redo(),accelerator='Ctrl+Y'
         )
-        self.edit.add_command(label="Undo          Ctrl+z", command=lambda: self.undo())
+        self.edit.add_command(label="Undo", command=lambda: self.undo(),accelerator='Ctrl+Z')
         self.edit.add_command(
-            label="Select all    Ctrl+a", command=lambda: self.select_all()
+            label="Select all", command=lambda: self.select_all(),accelerator='Ctrl+A'
         )
         self.edit.add_command(
-            label="Delete         DEL", command=lambda: keyboard.press("DEL")
+            label="Delete", command=lambda: keyboard.press("DEL"),accelerator='DEL'
         )
         menubar.toolbar.add_cascade(label="Edit", menu=self.edit)
         w.root.config(menu=self.edit)

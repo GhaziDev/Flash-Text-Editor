@@ -12,12 +12,12 @@ class Search:
 
     def search_menu(self):
         self.search.add_command(
-            label="Find...                       Ctrl+F",
-            command=lambda: self.find_window(),
+            label="Find...",
+            command=lambda: self.find_window(),accelerator='Ctrl+F'
         )
         self.search.add_command(
-            label="Find and Replace    Ctrl+H",
-            command=lambda: self.find_and_replace_window(),
+            label="Find and Replace",
+            command=lambda: self.find_and_replace_window(),accelerator='Ctrl+H'
         )
         menubar.toolbar.add_cascade(label="Search", menu=self.search)
         w.root.config(menu=self.search)

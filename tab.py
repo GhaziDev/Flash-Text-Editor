@@ -19,6 +19,7 @@ class Tab:
             foreground=txtconfig.foreground,
             selectbackground=txtconfig.selectbackground,
         )
+        self.txt.focus_set()
         self.txt.config(font=(txtconfig.font_family, txtconfig.font_size))
         self.txt_collection.append(self.txt)
         return self.txt, self.notebook
