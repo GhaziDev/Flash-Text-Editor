@@ -42,8 +42,8 @@ class File:
             txt, tb = w.tab.add_tab(f"{filename}")
             txt.config(
                 undo=True,
-                insertbackground="white",
-                font=("Terminal", 15),
+                insertbackground=txtconfig.insertbackground,
+                font=(txtconfig.font_family,txtconfig.font_size),
                 height=w.height,
                 width=w.width,
             )
@@ -92,8 +92,8 @@ class File:
         txt, tb = w.tab.add_tab(f"Untitled")
         txt.config(
             undo=True,
-            insertbackground="white",
-            font=("Terminal", 15),
+            insertbackground=txtconfig.insertbackground,
+            font=(txtconfig.font_family,txtconfig.font_size),
             height=w.height,
             width=w.width,
         )
@@ -104,6 +104,8 @@ class File:
     def close_file(self):
         for current_tab in w.tab.notebook.winfo_children():
             if str(current_tab) == w.tab.notebook.select():
+                ###here
+                w.tab.txt_collection.pop(w.tab.notebook.index(w.tab.notebook.select()))
                 current_tab.destroy()
                 return 
 

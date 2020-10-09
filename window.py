@@ -1,6 +1,5 @@
 from tkinter import *
 from tab import *
-import pyautogui
 
 
 class Window:
@@ -11,7 +10,7 @@ class Window:
         self.tab = Tab(self.root)
         self.vertical_scrollbar = ttk.Scrollbar(self.root)
         self.txt, self.tb = self.tab.add_tab("Untitled")
-        self.height, self.width = pyautogui.size()
+        self.height, self.width = self.root.winfo_reqheight(),self.root.winfo_reqwidth()
         self.txt.config(
             height=self.height,
             width=self.width,
