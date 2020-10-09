@@ -4,6 +4,7 @@ from tkinter import ttk
 from tkinter import filedialog
 from window import w
 from menubar import menubar
+from textconfig import txtconfig
 
 
 class File:
