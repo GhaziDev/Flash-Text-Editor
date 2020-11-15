@@ -1,6 +1,5 @@
 from tkinter import ttk
 from tkinter import *
-import keyboard
 from window import w
 from menubar import menubar
 
@@ -46,45 +45,48 @@ class Search:
         self.find_button.pack(side=BOTTOM)
 
     def find(self):
+        text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
+        text.tag_remove("match", "1.0", END)
+        count = IntVar()
         try:
-            w.txt.tag_remove("match", "1.0", END)
-            count = IntVar()
-            s = w.txt.search(self.entry.get(), "1.0", stopindex="end", count=count)
-            w.txt.tag_configure("match", background="orange")
+            
+            s = text.search(self.entry.get(), "1.0", stopindex="end", count=count)
+            text.tag_configure("match", background="orange")
             end = f"{s}+{count.get()}c"
-            w.txt.tag_add("match", s, end)
-            w.txt.bind(
-                "<Button-1>", lambda event_data: w.txt.tag_remove("match", "1.0", END)
+            text.tag_add("match", s, end)
+            text.bind(
+                "<Button-1>", lambda event_data: text.tag_remove("match", "1.0", END)
             )
         except:
             return
-        if self.entry.get() in w.txt.get("1.0", END):
+        if self.entry.get() in text.get("1.0", END):
             return True
         else:
             return False
 
     def find_all(self):
-        w.txt.tag_remove("match", "1.0", END)
-        w.txt.tag_configure("match", background="orange")
+        text=w.tab.txt_collection[w.tab.notebook.index(w.tab.notebook.select())]
+        text.tag_remove("match", "1.0", END)
+        text.tag_configure("match", background="orange")
         count = IntVar()
         addition_factor = 0
         index = "1.0"
         while True:
             try:
-                s = w.txt.search(self.entry.get(), index, END, count=count, regexp=True)
+                s = text.search(self.entry.get(), index, END, count=count, regexp=True)
                 end = f"{s}+{count.get()}c"
-                w.txt.tag_add("match", s, end)
-                w.txt.see(s)
+                text.tag_add("match", s, end)
+                text.see(s)
                 addition_factor += 1
                 index = f"1.0+{addition_factor}c"
-                w.txt.bind(
+                text.bind(
                     "<Button-1>",
                     lambda event_data: w.txt.tag_remove("match", "1.0", END),
                 )
                 w.root.update()
             except:
                 break
-        if self.entry.get() in w.txt.get("1.0", END):
+        if self.entry.get() in text.get("1.0", END):
             return True
         else:
             return False
@@ -128,20 +130,22 @@ class Search:
         self.find_button2.pack(side=BOTTOM)
 
     def replace(self):
+        text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
         try:
             if self.find() == True:
-                ranges = [str(i).strip("<>") for i in w.txt.tag_ranges("match")]
-                w.txt.replace(ranges[0], ranges[-1], self.replace_entry.get())
+                ranges = [str(i).strip("<>") for i in text.tag_ranges("match")]
+                text.replace(ranges[0], ranges[-1], self.replace_entry.get())
         except:
             return
 
     def replace_all(self):
+        text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
         try:
             if self.find_all() == True:
-                ranges = [str(i).strip("<>") for i in w.txt.tag_ranges("match")]
+                ranges = [str(i).strip("<>") for i in text.tag_ranges("match")]
                 all_occurences = len(ranges) - 1
                 while all_occurences > 0:
-                    w.txt.replace(
+                    text.replace(
                         ranges[all_occurences - 1],
                         ranges[all_occurences],
                         self.replace_entry.get(),

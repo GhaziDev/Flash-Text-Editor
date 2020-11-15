@@ -20,7 +20,7 @@ class File:
         self.filemenu.add_command(
             label="Open File", command=lambda: self.open_file(),accelerator='Ctrl+O'
         )
-        # self.filemenu.add_command(label='Save              Ctrl+S',command=lambda:self.save_file())
+        self.filemenu.add_command(label='Save              Ctrl+S',command=lambda:self.save_file())
         self.filemenu.add_command(
             label="Save as", command=lambda: self.save_file_as(),accelerator='Ctrl+Shift+S'
         )
@@ -32,13 +32,13 @@ class File:
 
     def open_file(self):
         try:
-            f = filedialog.askopenfile(
+            self.f = filedialog.askopenfile(
                 mode="r",
                 initialdir="/",
                 title="Select A File",
                 filetype=(("files", "*.txt"), ("all files", "*.*")),
             )
-            filename = os.path.basename(f.name)
+            filename = os.path.basename(self.f.name)
             txt, tb = w.tab.add_tab(f"{filename}")
             txt.config(
                 undo=True,
@@ -47,7 +47,7 @@ class File:
                 height=w.height,
                 width=w.width,
             )
-            txt.insert("1.0", f.read())
+            txt.insert("1.0", self.f.read())
             txt.pack()
             tb.pack()
 
@@ -62,31 +62,27 @@ class File:
                     defaultextension=".txt",
                     initialdir="/",
                     title="Select A File",
-                    filetype=(("files", "*.txt"), ("all files", "*.*")),
+                    filetype=(("text", "*.txt"), ("all files", "*.*")),
                 )
                 self.f.write(i.get("1.0", END))
                 self.f.close()
                 w.tab.notebook.tab(
                     w.tab.notebook.select(), text=os.path.basename(self.f.name)
-                )
+                ) 
                 return
         except:
             return
 
-    """def save_file(self):
+    def save_file(self):
+    
         try:
-            current_tab=str(self.f.name)[::-1].replace('/',f'/{w.tab.notebook.tab(w.tab.notebook.select(),"text")}',0)
-            current_tab=current_tab[::-1]
-            print(current_tab)
-            for i in range(self.file_counter,len(w.tab.txt_collection)):    
-                    get=w.tab.txt_collection[i].get('1.0',END)
-                    f=open(current_tab,'w')
-                    f.write(get)
-                    f.close()
+            text=w.tab.txt_collection[w.tab.notebook.index(w.tab.notebook.select())]
+            self.f=open(self.f.name,"w")
+            self.f.write(text.get('1.0',END))
+            self.f.close()
         except:
             self.save_file_as()
-        """
-    # this method is under maintanance
+
 
     def new_file(self):
         txt, tb = w.tab.add_tab(f"Untitled")
@@ -103,10 +99,10 @@ class File:
     def close_file(self):
         for current_tab in w.tab.notebook.winfo_children():
             if str(current_tab) == w.tab.notebook.select():
-                ###here
                 w.tab.txt_collection.pop(w.tab.notebook.index(w.tab.notebook.select()))
                 current_tab.destroy()
-                return 
+                return
+            
 
   
 
@@ -139,8 +135,8 @@ class File:
         w.root.bind_all("<Control-N>", lambda event: self.new_file())
         w.root.bind_all("<Control-o>", lambda event: self.open_file())
         w.root.bind_all("<Control-O>", lambda event: self.open_file())
-        # w.root.bind_all('<Control-s>',lambda event:self.save_file())
-        # w.root.bind_all('<Control-S>',lambda event:self.save_file())
+        w.root.bind_all('<Control-s>',lambda event:self.save_file())
+        w.root.bind_all('<Control-S>',lambda event:self.save_file())
         w.root.bind_all("<Control-Shift-s>", lambda event: self.save_file_as())
         w.root.bind_all("<Control-Shift-S>", lambda event: self.save_file_as())
         w.root.bind_all("<Control-k>", lambda event: self.close_file())

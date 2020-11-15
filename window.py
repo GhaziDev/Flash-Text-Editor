@@ -1,3 +1,4 @@
+from tkinter import ttk
 from tkinter import *
 from tab import Tab
 
@@ -6,7 +7,7 @@ class Window:
     def __init__(self):
         self.root = Tk()
         self.root.title("Flash")
-        self.label = Label(self.root, width=1080, height=1920, text="Create new file")
+        self.label = Label(self.root, width=self.root.winfo_reqwidth(), height=self.root.winfo_reqheight(), text="Create new file")
         self.tab = Tab(self.root)
         self.vertical_scrollbar = ttk.Scrollbar(self.root)
         self.txt, self.tb = self.tab.add_tab("Untitled")
