@@ -62,7 +62,7 @@ class File:
                     defaultextension=".txt",
                     initialdir="/",
                     title="Select A File",
-                    filetype=(("text", "*.txt"), ("all files", "*.*")),
+                    filetype=(("text", "*.txt"),("python","*.py"), ("all files", "*.*")),
                 )
                 self.f.write(i.get("1.0", END))
                 self.f.close()

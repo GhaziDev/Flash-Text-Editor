@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import font
 from window import w
 from menubar import menubar
+from textconfig import txtconfig
 
 
 class View:

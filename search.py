@@ -8,7 +8,6 @@ class Search:
     def __init__(self):
         self.search = Menu(menubar.toolbar, tearoff=False)
         self.binding_keys()
-
     def search_menu(self):
         self.search.add_command(
             label="Find...",
@@ -43,14 +42,12 @@ class Search:
         self.entry.pack()
         self.find_all_button.pack(side=BOTTOM)
         self.find_button.pack(side=BOTTOM)
-
     def find(self):
         text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
         text.tag_remove("match", "1.0", END)
         count = IntVar()
-        try:
-            
-            s = text.search(self.entry.get(), "1.0", stopindex="end", count=count)
+        try: 
+            s = text.search(self.entry.get(), "1.0", count=count)
             text.tag_configure("match", background="orange")
             end = f"{s}+{count.get()}c"
             text.tag_add("match", s, end)

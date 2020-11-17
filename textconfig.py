@@ -9,3 +9,4 @@ class TextConfig:
 
 
 txtconfig = TextConfig()
+'''Made  a class for text configuration, so it is possible and easier to control text configurations around all widgets at once'''
