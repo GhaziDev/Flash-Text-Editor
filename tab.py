@@ -10,6 +10,8 @@ class Tab:
 
     def add_tab(self, title):
         frame = ttk.Frame(self.notebook)
+        self.vertical_scrollbar = ttk.Scrollbar(frame)
+
         self.notebook.add(frame, text=title)
         self.txt = Text(
             frame,
@@ -18,7 +20,10 @@ class Tab:
             background=txtconfig.background,
             foreground=txtconfig.foreground,
             selectbackground=txtconfig.selectbackground,
+            yscrollcommand=self.vertical_scrollbar.set,
         )
+        self.vertical_scrollbar.config(command=self.txt.yview)
+        self.vertical_scrollbar.pack(fill="both", expand="yes", side=RIGHT)
         self.txt.focus_set()
         self.txt.config(font=(txtconfig.font_family, txtconfig.font_size))
         self.txt_collection.append(self.txt)

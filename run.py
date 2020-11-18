@@ -23,7 +23,7 @@ t.theme_menu()
 t.dark_theme()
 w.root.config(menu=rcm.rightclickmenu)
 w.root.config(menu=menubar.toolbar)
-w.count_elements()
+w.footer_elements()
 
 
 if __name__ == "__main__":

@@ -8,14 +8,15 @@ class Search:
     def __init__(self):
         self.search = Menu(menubar.toolbar, tearoff=False)
         self.binding_keys()
+
     def search_menu(self):
         self.search.add_command(
-            label="Find...",
-            command=lambda: self.find_window(),accelerator='Ctrl+F'
+            label="Find...", command=lambda: self.find_window(), accelerator="Ctrl+F"
         )
         self.search.add_command(
             label="Find and Replace",
-            command=lambda: self.find_and_replace_window(),accelerator='Ctrl+H'
+            command=lambda: self.find_and_replace_window(),
+            accelerator="Ctrl+H",
         )
         menubar.toolbar.add_cascade(label="Search", menu=self.search)
         w.root.config(menu=self.search)
@@ -42,11 +43,12 @@ class Search:
         self.entry.pack()
         self.find_all_button.pack(side=BOTTOM)
         self.find_button.pack(side=BOTTOM)
+
     def find(self):
-        text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
+        text = w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
         text.tag_remove("match", "1.0", END)
         count = IntVar()
-        try: 
+        try:
             s = text.search(self.entry.get(), "1.0", count=count)
             text.tag_configure("match", background="orange")
             end = f"{s}+{count.get()}c"
@@ -62,7 +64,7 @@ class Search:
             return False
 
     def find_all(self):
-        text=w.tab.txt_collection[w.tab.notebook.index(w.tab.notebook.select())]
+        text = w.tab.txt_collection[w.tab.notebook.index(w.tab.notebook.select())]
         text.tag_remove("match", "1.0", END)
         text.tag_configure("match", background="orange")
         count = IntVar()
@@ -127,7 +129,7 @@ class Search:
         self.find_button2.pack(side=BOTTOM)
 
     def replace(self):
-        text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
+        text = w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
         try:
             if self.find() == True:
                 ranges = [str(i).strip("<>") for i in text.tag_ranges("match")]
@@ -136,7 +138,7 @@ class Search:
             return
 
     def replace_all(self):
-        text=w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
+        text = w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
         try:
             if self.find_all() == True:
                 ranges = [str(i).strip("<>") for i in text.tag_ranges("match")]

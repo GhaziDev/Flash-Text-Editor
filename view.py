@@ -13,11 +13,11 @@ class View:
         self.font_family = Menu(self.view, tearoff=False)
 
     def view_menu(self):
+        self.set_size_command()
+        self.set_family_command()
         self.view.add_cascade(label="Font size", menu=self.font_size)
         self.view.add_cascade(label="Font Family", menu=self.font_family)
         menubar.toolbar.add_cascade(label="View", menu=self.view)
-        self.set_size_command()
-        self.set_family_command()
         w.root.config(menu=self.view)
 
     def size_and_family(self, fm, px):

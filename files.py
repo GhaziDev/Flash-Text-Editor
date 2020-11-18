@@ -15,17 +15,21 @@ class File:
 
     def file_menu(self):
         self.filemenu.add_command(
-            label="New file", command=lambda: self.new_file(),accelerator='Ctrl+N'
+            label="New file", command=lambda: self.new_file(), accelerator="Ctrl+N"
         )
         self.filemenu.add_command(
-            label="Open File", command=lambda: self.open_file(),accelerator='Ctrl+O'
-        )
-        self.filemenu.add_command(label='Save              Ctrl+S',command=lambda:self.save_file())
-        self.filemenu.add_command(
-            label="Save as", command=lambda: self.save_file_as(),accelerator='Ctrl+Shift+S'
+            label="Open File", command=lambda: self.open_file(), accelerator="Ctrl+O"
         )
         self.filemenu.add_command(
-            label="Close file", command=lambda: self.close_file(),accelerator='Ctrl+K'
+            label="Save              Ctrl+S", command=lambda: self.save_file()
+        )
+        self.filemenu.add_command(
+            label="Save as",
+            command=lambda: self.save_file_as(),
+            accelerator="Ctrl+Shift+S",
+        )
+        self.filemenu.add_command(
+            label="Close file", command=lambda: self.close_file(), accelerator="Ctrl+K"
         )
         self.filemenu.add_command(label="Exit", command=lambda: self.exit())
         menubar.toolbar.add_cascade(label="File", menu=self.filemenu)
@@ -43,7 +47,7 @@ class File:
             txt.config(
                 undo=True,
                 insertbackground=txtconfig.insertbackground,
-                font=(txtconfig.font_family,txtconfig.font_size),
+                font=(txtconfig.font_family, txtconfig.font_size),
                 height=w.height,
                 width=w.width,
             )
@@ -62,34 +66,37 @@ class File:
                     defaultextension=".txt",
                     initialdir="/",
                     title="Select A File",
-                    filetype=(("text", "*.txt"),("python","*.py"), ("all files", "*.*")),
+                    filetype=(
+                        ("text", "*.txt"),
+                        ("python", "*.py"),
+                        ("all files", "*.*"),
+                    ),
                 )
                 self.f.write(i.get("1.0", END))
                 self.f.close()
                 w.tab.notebook.tab(
                     w.tab.notebook.select(), text=os.path.basename(self.f.name)
-                ) 
+                )
                 return
         except:
             return
 
     def save_file(self):
-    
+
         try:
-            text=w.tab.txt_collection[w.tab.notebook.index(w.tab.notebook.select())]
-            self.f=open(self.f.name,"w")
-            self.f.write(text.get('1.0',END))
+            text = w.tab.txt_collection[w.tab.notebook.index(w.tab.notebook.select())]
+            self.f = open(self.f.name, "w")
+            self.f.write(text.get("1.0", END))
             self.f.close()
         except:
             self.save_file_as()
-
 
     def new_file(self):
         txt, tb = w.tab.add_tab(f"Untitled")
         txt.config(
             undo=True,
             insertbackground=txtconfig.insertbackground,
-            font=(txtconfig.font_family,txtconfig.font_size),
+            font=(txtconfig.font_family, txtconfig.font_size),
             height=w.height,
             width=w.width,
         )
@@ -102,9 +109,6 @@ class File:
                 w.tab.txt_collection.pop(w.tab.notebook.index(w.tab.notebook.select()))
                 current_tab.destroy()
                 return
-            
-
-  
 
     def exit(self):
         exit_win = Toplevel(w.root)
@@ -135,8 +139,8 @@ class File:
         w.root.bind_all("<Control-N>", lambda event: self.new_file())
         w.root.bind_all("<Control-o>", lambda event: self.open_file())
         w.root.bind_all("<Control-O>", lambda event: self.open_file())
-        w.root.bind_all('<Control-s>',lambda event:self.save_file())
-        w.root.bind_all('<Control-S>',lambda event:self.save_file())
+        w.root.bind_all("<Control-s>", lambda event: self.save_file())
+        w.root.bind_all("<Control-S>", lambda event: self.save_file())
         w.root.bind_all("<Control-Shift-s>", lambda event: self.save_file_as())
         w.root.bind_all("<Control-Shift-S>", lambda event: self.save_file_as())
         w.root.bind_all("<Control-k>", lambda event: self.close_file())
