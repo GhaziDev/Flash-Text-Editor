@@ -45,9 +45,6 @@ class File:
             filename = os.path.basename(self.f.name)
             txt, tb = w.tab.add_tab(f"{filename}")
             txt.config(
-                undo=True,
-                insertbackground=txtconfig.insertbackground,
-                font=(txtconfig.font_family, txtconfig.font_size),
                 height=w.height,
                 width=w.width,
             )
@@ -94,9 +91,6 @@ class File:
     def new_file(self):
         txt, tb = w.tab.add_tab(f"Untitled")
         txt.config(
-            undo=True,
-            insertbackground=txtconfig.insertbackground,
-            font=(txtconfig.font_family, txtconfig.font_size),
             height=w.height,
             width=w.width,
         )
