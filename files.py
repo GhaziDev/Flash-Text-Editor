@@ -21,7 +21,7 @@ class File:
             label="Open File", command=lambda: self.open_file(), accelerator="Ctrl+O"
         )
         self.filemenu.add_command(
-            label="Save              Ctrl+S", command=lambda: self.save_file()
+            label="Save", command=lambda: self.save_file(),accelerator="Ctrl+S"
         )
         self.filemenu.add_command(
             label="Save as",
