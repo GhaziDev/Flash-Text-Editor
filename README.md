@@ -49,17 +49,17 @@ Lets start exploring the text editor:
 Now for the second menu which is "Edit":
 
 
--copy
+-Copy
 
--paste
+-Paste
 
--cut
+-Cut
 
--select all
+-Select All
 
--undo
+-Undo
 
--redo
+-Redo
 
 -Delete
 
@@ -121,7 +121,6 @@ Finally we have Theme menu:
 
 - Lack of Testing (which i learnt it the hard way, it is very important to milk whatever functionality you are testing)
 
-- procrastination (isnt this a programmer habit :P)
 
 ### Things that improved me :
 
