@@ -3,7 +3,6 @@ from tkinter import *
 from window import w
 from menubar import menubar
 
-
 class Search:
     def __init__(self):
         self.search = Menu(menubar.toolbar, tearoff=False)
@@ -29,20 +28,18 @@ class Search:
             self.find_win,
             text="           Find         ",
             command=lambda: self.find(),
-            width=20,
         )
         self.find_all_button = ttk.Button(
             self.find_win,
             text="           Find all    ",
             command=lambda: self.find_all(),
-            width=20,
         )
         self.entry = Entry(self.find_win, width=75)
-        self.find_win.geometry("457x70")
+        self.find_win.geometry("200x100")
 
         self.entry.pack()
-        self.find_all_button.pack(side=BOTTOM)
-        self.find_button.pack(side=BOTTOM)
+        self.find_all_button.pack(side=LEFT, padx=(5, 0))
+        self.find_button.pack(side=LEFT, padx=(5, 0))
 
     def find(self):
         text = w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
@@ -97,13 +94,11 @@ class Search:
             self.f_r_win,
             text="          Find        ",
             command=lambda: self.find(),
-            width=20,
         )
         self.find_all_button = ttk.Button(
             self.f_r_win,
             text="          Find all      ",
             command=lambda: self.find_all(),
-            width=20,
         )
         self.entry = Entry(self.f_r_win, width=75)
         self.f_r_win.geometry("457x140")
@@ -113,20 +108,18 @@ class Search:
             self.f_r_win,
             text="          Replace           ",
             command=lambda: self.replace(),
-            width=20,
         )
         self.replace_all_button = ttk.Button(
             self.f_r_win,
             text="          Replace all       ",
             command=lambda: self.replace_all(),
-            width=20,
         )
         self.entry.pack()
         self.replace_entry.pack()
-        self.replace_all_button.pack(side=BOTTOM)
-        self.replace_button.pack(side=BOTTOM)
-        self.find_all_button.pack(side=BOTTOM)
-        self.find_button2.pack(side=BOTTOM)
+        self.replace_all_button.pack(side=LEFT, padx=(5, 0))
+        self.replace_button.pack(side=LEFT, padx=(5, 0))
+        self.find_all_button.pack(side=LEFT, padx=(5, 0))
+        self.find_button2.pack(side=LEFT, padx=(5, 0))
 
     def replace(self):
         text = w.tab.txt_collection[(w.tab.notebook.index(w.tab.notebook.select()))]
