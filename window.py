@@ -58,15 +58,25 @@ class Window:
 
         def wrapper(event):
             try:
-                pos = text.index(INSERT)
-                line, column = (num for num in pos.split("."))
-                func_string = text.get(f"{line}.0", f"{line}.{column}")
-                pattern = re.compile(r"(?<=\s)[\w()]+(?=\:)")
-                func_length = len(pattern.search(func_string).group())
-                indentation_factor = abs((int(column) - 1) - func_length)
-                if ":" in text.get("insert-1c") or "{" in text.get("insert-1c"):
+                
+                if ":" in text.get("insert-1c") :
+                    pos = text.index(INSERT)
+                    line, column = (num for num in pos.split("."))
+                    func_string = text.get(f"{line}.0", f"{line}.{column}")
+                    pattern = re.compile(r"(?<=\s)[\w()]+(?=\:)")
+                    func_length = len(pattern.search(func_string).group())
+                    indentation_factor = abs((int(column) - 1) - func_length)
                     text.insert(INSERT, "\n" + " " * indentation_factor)
                     return "break"
+                if "{" in text.get("insert-1c"):
+                    pos = text.index(INSERT)
+                    line, column = (num for num in pos.split("."))
+                    func_string = text.get(f"{line}.0", f"{line}.{column}")
+                    pattern = re.compile(r"^(?:\w+\s)([\w_()]+)")
+                    func_length = len(pattern.search(func_string).group())
+                    indentation_factor = abs((int(column) - 1) - func_length)
+                    text.insert(INSERT, "\n" + " " * indentation_factor)
+
             except:
                 return
 
