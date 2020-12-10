@@ -50,7 +50,7 @@ class Window:
                 self.root.update()
             except:
                 break
-    def indentation(self,event):
+    def indentation(self):
 
         text = self.tab.txt_collection[
             self.tab.notebook.index(self.tab.notebook.select())
