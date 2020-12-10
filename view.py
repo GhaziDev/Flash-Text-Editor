@@ -48,6 +48,10 @@ class View:
 
     def set_family_command(self):
         self.font_family.add_radiobutton(
+            label="Consolas",
+            command=lambda: self.size_and_family("Consolas", txtconfig.font_size),
+        )
+        self.font_family.add_radiobutton(
             label="Arial",
             command=lambda: self.size_and_family("Arial", txtconfig.font_size),
         )
