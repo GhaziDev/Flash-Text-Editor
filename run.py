@@ -9,13 +9,13 @@ from view import View
 from search import Search
 from files import File
 from theme import Themes
+from interpret_and_compile import Run
 
 t = Themes()
-f = File()
+r = Run()
 e = Edit()
 v = View()
 s = Search()
-f.file_menu()
 e.edit_menu()
 v.view_menu()
 s.search_menu()
