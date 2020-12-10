@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from textconfig import txtconfig
 
 
@@ -9,8 +8,8 @@ class Tab:
         self.txt_collection = []
 
     def add_tab(self, title):
-        frame = ttk.Frame(self.notebook)
-        self.vertical_scrollbar = ttk.Scrollbar(frame)
+        frame = Frame(self.notebook)
+        self.vertical_scrollbar = Scrollbar(frame)
 
         self.notebook.add(frame, text=title)
         self.txt = Text(
