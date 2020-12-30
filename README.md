@@ -6,7 +6,7 @@
 
 - ``python -m pip install requirements.txt``
 
-- In the terminal/cmd, run ``setup.py`` like this: ``python setup.py``
+- In the terminal/cmd, run ``run.py`` like this: ``python setup.py``
 
 
 
