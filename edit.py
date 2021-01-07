@@ -1,5 +1,3 @@
-import os
-from tkinter import ttk
 from tkinter import *
 import keyboard
 from window import w
@@ -61,7 +59,4 @@ class Edit:
             w.root.update()
 
     def select_all(self):
-        try:
-            w.root.focus_get().tag_add("sel", "1.0", END)
-        except:
-            return
+        w.root.focus_get().tag_add("sel", "1.0", END)

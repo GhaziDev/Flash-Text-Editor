@@ -1,4 +1,3 @@
-from tkinter import ttk
 from tkinter import *
 from tab import Tab
 
@@ -23,7 +22,6 @@ class Window:
             height=self.height,
             width=self.width,
         )
-        self.indentation()
         self.footer = Label(self.root)
 
         self.footer.pack(fill="both", expand="yes", side=BOTTOM)
@@ -48,40 +46,8 @@ class Window:
                         anchor=E,
                     )
                 self.root.update()
-            except:
+            except TclError:
                 break
-    def indentation(self):
-
-        text = self.tab.txt_collection[
-            self.tab.notebook.index(self.tab.notebook.select())
-        ]
-
-        def wrapper(event):
-            try:
-                
-                if ":" in text.get("insert-1c") :
-                    pos = text.index(INSERT)
-                    line, column = (num for num in pos.split("."))
-                    func_string = text.get(f"{line}.0", f"{line}.{column}")
-                    pattern = re.compile(r"(?<=\s)[\w()]+(?=\:)")
-                    func_length = len(pattern.search(func_string).group())
-                    indentation_factor = abs((int(column) - 1) - func_length)
-                    text.insert(INSERT, "\n" + " " * indentation_factor)
-                    return "break"
-                if "{" in text.get("insert-1c"):
-                    pos = text.index(INSERT)
-                    line, column = (num for num in pos.split("."))
-                    func_string = text.get(f"{line}.0", f"{line}.{column}")
-                    pattern = re.compile(r"^(?:\w+\s)([\w_()]+)")
-                    func_length = len(pattern.search(func_string).group())
-                    indentation_factor = abs((int(column) - 1) - func_length)
-                    text.insert(INSERT, "\n" + " " * indentation_factor)
-
-            except:
-                return
-
-        text.bind("<Return>", wrapper)
-
 
 
 w = Window()

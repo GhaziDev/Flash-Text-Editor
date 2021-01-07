@@ -1,7 +1,5 @@
 from tkinter import *
 from textconfig import txtconfig
-import re
-
 
 class Tab:
     def __init__(self, master):
@@ -27,26 +25,28 @@ class Tab:
         self.txt.focus_set()
         self.txt.config(font=(txtconfig.font_family, txtconfig.font_size))
         self.txt_collection.append(self.txt)
-        self.txt.bind('<Return>',self.indentation)
+        self.txt.bind("<Return>", self.indentation)
         return self.txt, self.notebook
-    def indentation(self,event):
-            try:
-                pos = self.txt.index(INSERT)
-                line, column = (num for num in pos.split("."))
-                func_len=(self.txt.get(f"{line}.0",f"{line}.{column}")).strip(" ")
-                indentation_factor = abs(int(column)-len(func_len))+3
-                auto_indent=abs(int(column)-len((self.txt.get(f"{line}.0",f"{line}.{column}").strip(" "))))
-                if ":" in self.txt.get("insert-1c") :
-                    self.txt.insert(INSERT,"\n"+" "*indentation_factor)
-                    return "break"
-                if "{" in self.txt.get("insert-1c"):
-                    self.txt.insert(INSERT, "\n" + " " *indentation_factor)
-                    return "break"
-                else:
-                    self.txt.insert(INSERT,"\n"+" "*auto_indent)
-                    return 'break'
 
-            except AttributeError:
-                return
+    def indentation(self, event):
+        try:
+            pos = self.txt.index(INSERT)
+            line, column = (num for num in pos.split("."))
+            func_len = (self.txt.get(f"{line}.0", f"{line}.{column}")).strip(" ")
+            indentation_factor = abs(int(column) - len(func_len)) + 3
+            auto_indent = abs(
+                int(column)
+                - len((self.txt.get(f"{line}.0", f"{line}.{column}").strip(" ")))
+            )
+            if ":" in self.txt.get("insert-1c"):
+                self.txt.insert(INSERT, "\n" + " " * indentation_factor)
+                return "break"
+            if "{" in self.txt.get("insert-1c"):
+                self.txt.insert(INSERT, "\n" + " " * indentation_factor)
+                return "break"
+            else:
+                self.txt.insert(INSERT, "\n" + " " * auto_indent)
+                return "break"
 
-
+        except AttributeError:
+            return

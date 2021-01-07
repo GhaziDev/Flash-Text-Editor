@@ -1,4 +1,3 @@
-from tkinter import ttk
 from tkinter import *
 from window import w
 

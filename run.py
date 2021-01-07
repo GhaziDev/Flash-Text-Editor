@@ -1,4 +1,3 @@
-from tkinter import ttk
 from tkinter import *
 from window import w
 from menubar import menubar
@@ -24,7 +23,6 @@ t.dark_theme()
 w.root.config(menu=rcm.rightclickmenu)
 w.root.config(menu=menubar.toolbar)
 w.footer_elements()
-
 
 if __name__ == "__main__":
 

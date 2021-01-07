@@ -4,7 +4,6 @@ from tkinter import ttk
 from tkinter import filedialog
 from window import w
 from menubar import menubar
-from textconfig import txtconfig
 
 
 class File:
@@ -21,7 +20,7 @@ class File:
             label="Open File", command=lambda: self.open_file(), accelerator="Ctrl+O"
         )
         self.filemenu.add_command(
-            label="Save", command=lambda: self.save_file(),accelerator="Ctrl+S"
+            label="Save", command=lambda: self.save_file(), accelerator="Ctrl+S"
         )
         self.filemenu.add_command(
             label="Save as",

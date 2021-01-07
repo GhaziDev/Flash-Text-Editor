@@ -3,13 +3,11 @@ from tkinter import ttk
 from window import w
 from menubar import menubar
 from search import Search
-from ttkthemes import ThemedStyle
 from tkinter import colorchooser
 from textconfig import txtconfig
 
 
 class Themes:
-    
     def __init__(self):
         self.Theme = Menu(menubar.toolbar, tearoff=False)
         self.themes = Menu(self.Theme, tearoff=False)
@@ -85,7 +83,7 @@ class Themes:
         w.root.configure(bg="#412A2B")
         s.configure("TNotebook", background="#412A2B")
         txtconfig.background = "#412A2B"
-        txtconfig.foreground = "black"
+        txtconfig.foreground = "white"
         txtconfig.insertbackground = "white"
         for i in w.tab.txt_collection:
             i.config(
