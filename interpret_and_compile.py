@@ -2,10 +2,9 @@ from tkinter import *
 from window import w
 from menubar import menubar
 from files import File
-import os
 import subprocess
 
-# Running a program need a file, so the run and compile process has a file object
+# Running a program need a file, so the run and compile file has File object
 class Run:
     def __init__(self):
         self.file = File()
