@@ -3,6 +3,7 @@ from tkinter import *
 from window import w
 from menubar import menubar
 
+
 class Search:
     def __init__(self):
         self.search = Menu(menubar.toolbar, tearoff=False)
@@ -53,7 +54,7 @@ class Search:
             text.bind(
                 "<Button-1>", lambda event_data: text.tag_remove("match", "1.0", END)
             )
-        except:
+        except IndexError:
             return
         if self.entry.get() in text.get("1.0", END):
             return True
@@ -80,7 +81,7 @@ class Search:
                     lambda event_data: w.txt.tag_remove("match", "1.0", END),
                 )
                 w.root.update()
-            except:
+            except TclError:
                 break
         if self.entry.get() in text.get("1.0", END):
             return True
@@ -127,7 +128,7 @@ class Search:
             if self.find() == True:
                 ranges = [str(i).strip("<>") for i in text.tag_ranges("match")]
                 text.replace(ranges[0], ranges[-1], self.replace_entry.get())
-        except:
+        except IndexError:
             return
 
     def replace_all(self):
@@ -143,7 +144,7 @@ class Search:
                         self.replace_entry.get(),
                     )
                     all_occurences -= 2
-        except:
+        except TclError:
             return
 
     def binding_keys(self):
