@@ -1,10 +1,10 @@
-from tkinter import *
+import tkinter as tk
 from window import w
 
 
 class Menubar:
     def __init__(self):
-        self.toolbar = Menu(w.root)
+        self.toolbar = tk.Menu(w.root)
 
 
 menubar = Menubar()

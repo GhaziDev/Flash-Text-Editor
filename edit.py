@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 import keyboard
 from window import w
 from menubar import menubar
@@ -6,7 +6,7 @@ from menubar import menubar
 
 class Edit:
     def __init__(self):
-        self.edit = Menu(menubar.toolbar, tearoff=False)
+        self.edit = tk.Menu(menubar.toolbar, tearoff=False)
 
     def edit_menu(self):
         self.edit.add_command(
@@ -25,10 +25,14 @@ class Edit:
             label="Undo", command=lambda: self.undo(), accelerator="Ctrl+Z"
         )
         self.edit.add_command(
-            label="Select all", command=lambda: self.select_all(), accelerator="Ctrl+A"
+            label="Select all",
+            command=lambda: self.select_all(),
+            accelerator="Ctrl+A"
         )
         self.edit.add_command(
-            label="Delete", command=lambda: keyboard.press("DEL"), accelerator="DEL"
+            label="Delete",
+            command=lambda: keyboard.press("DEL"),
+            accelerator="DEL"
         )
         menubar.toolbar.add_cascade(label="Edit", menu=self.edit)
         w.root.config(menu=self.edit)
@@ -59,4 +63,4 @@ class Edit:
             w.root.update()
 
     def select_all(self):
-        w.root.focus_get().tag_add("sel", "1.0", END)
+        w.root.focus_get().tag_add("sel", "1.0", tk.END)

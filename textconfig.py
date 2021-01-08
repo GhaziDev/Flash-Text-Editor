@@ -1,5 +1,6 @@
-"""Made  a class for text configuration, so it is possible and easier to 
-control text configurations around all widgets at once,also can be used to edit some other widgets background"""
+"""Made  a class for text configuration, so it is possible and easier to
+control text configurations around all widgets at once,
+also can be used to edit some other widgets background"""
 
 
 class TextConfig:

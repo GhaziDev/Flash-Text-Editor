@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 from tkinter import font
 from window import w
 from menubar import menubar
@@ -7,9 +7,9 @@ from textconfig import txtconfig
 
 class View:
     def __init__(self):
-        self.view = Menu(menubar.toolbar, tearoff=False)
-        self.font_size = Menu(self.view, tearoff=False)
-        self.font_family = Menu(self.view, tearoff=False)
+        self.view = tk.Menu(menubar.toolbar, tearoff=False)
+        self.font_size = tk.Menu(self.view, tearoff=False)
+        self.font_family = tk.Menu(self.view, tearoff=False)
 
     def view_menu(self):
         self.set_size_command()
@@ -23,7 +23,10 @@ class View:
 
         txtconfig.font_family = fm
         txtconfig.font_size = px
-        fonts = font.Font(family=txtconfig.font_family, size=txtconfig.font_size)
+        fonts = font.Font(
+            family=txtconfig.font_family,
+            size=txtconfig.font_size
+            )
         for i in w.tab.txt_collection:
             i.config(font=(fonts))
             w.root.update()
@@ -48,7 +51,9 @@ class View:
     def set_family_command(self):
         self.font_family.add_radiobutton(
             label="Consolas",
-            command=lambda: self.size_and_family("Consolas", txtconfig.font_size),
+            command=lambda: self.size_and_family(
+                "Consolas", txtconfig.font_size
+                )
         )
         self.font_family.add_radiobutton(
             label="Arial",
@@ -56,7 +61,9 @@ class View:
         )
         self.font_family.add_radiobutton(
             label="Modern",
-            command=lambda: self.size_and_family("Modern", txtconfig.font_size),
+            command=lambda: self.size_and_family(
+                "Modern", txtconfig.font_size
+                )
         )
         self.font_family.add_radiobutton(
             label="Roman",
@@ -64,11 +71,15 @@ class View:
         )
         self.font_family.add_radiobutton(
             label="Courier",
-            command=lambda: self.size_and_family("Courier", txtconfig.font_size),
+            command=lambda: self.size_and_family(
+                "Courier", txtconfig.font_size
+                )
         )
         self.font_family.add_radiobutton(
             label="Terminal",
-            command=lambda: self.size_and_family("Terminal", txtconfig.font_size),
+            command=lambda: self.size_and_family(
+                "Terminal", txtconfig.font_size
+                )
         )
         self.font_family.add_radiobutton(
             label="Palatino Linotype",

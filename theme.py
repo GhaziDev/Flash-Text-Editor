@@ -1,19 +1,20 @@
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 from window import w
 from menubar import menubar
-from search import Search
 from tkinter import colorchooser
 from textconfig import txtconfig
 
 
 class Themes:
     def __init__(self):
-        self.Theme = Menu(menubar.toolbar, tearoff=False)
-        self.themes = Menu(self.Theme, tearoff=False)
+        self.Theme = tk.Menu(menubar.toolbar, tearoff=False)
+        self.themes = tk.Menu(self.Theme, tearoff=False)
 
     def theme_menu(self):
-        self.Theme.add_command(label=" Text Color", command=lambda: self.text_color())
+        self.Theme.add_command(
+            label=" Text Color", command=lambda: self.text_color()
+        )
         self.Theme.add_command(
             label=" Cursor Color", command=lambda: self.cursor_color()
         )
@@ -23,11 +24,15 @@ class Themes:
         self.themes.add_radiobutton(
             label="Dark (Default)", command=lambda: self.dark_theme()
         )
-        self.themes.add_radiobutton(label="White", command=lambda: self.white_theme())
+        self.themes.add_radiobutton(
+            label="White", command=lambda: self.white_theme()
+            )
         self.themes.add_radiobutton(
             label="Valhalla", command=lambda: self.valhalla_theme()
         )
-        self.themes.add_radiobutton(label="Havana", command=lambda: self.havana_theme())
+        self.themes.add_radiobutton(
+            label="Havana", command=lambda: self.havana_theme()
+            )
         menubar.toolbar.add_cascade(label="Theme", menu=self.Theme)
         self.Theme.add_cascade(label="  Themes", menu=self.themes)
         w.root.config(menu=self.Theme)
@@ -95,27 +100,18 @@ class Themes:
 
     def text_color(self):
         txtconfig.foreground = colorchooser.askcolor()[1]
-        try:
-            for i in w.tab.txt_collection:
-                i.config(foreground=txtconfig.foreground)
-        except:
-            return
+        for i in w.tab.txt_collection:
+            i.config(foreground=txtconfig.foreground)
 
     def cursor_color(self):
         txtconfig.insertbackground = colorchooser.askcolor()[1]
-        try:
-            for i in w.tab.txt_collection:
-                i.config(insertbackground=txtconfig.insertbackground)
-        except:
-            return
+        for i in w.tab.txt_collection:
+            i.config(insertbackground=txtconfig.insertbackground)
 
     def selector_color(self):
         txtconfig.selectbackground = colorchooser.askcolor()[1]
-        try:
-            for i in w.tab.txt_collection:
-                i.config(selectbackground=txtconfig.selectbackground)
-        except:
-            return
+        for i in w.tab.txt_collection:
+            i.config(selectbackground=txtconfig.selectbackground)
 
 
 # control any background color through txtconfig object
