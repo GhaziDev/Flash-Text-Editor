@@ -22,8 +22,17 @@ class Run:
                 subprocess.Popen(["python", self.file.f.name], shell=True)
             elif self.file.f.name.endswith(".js"):
                 subprocess.Popen(["node", self.file.f.name], shell=True)
+            elif self.file.f.name.endswith(".exs"):
+                subprocess.Popen(["elixir", self.file.f.name], shell=True)
             else:
-                print("File is not defined to run")
+                toplevel = tk.Toplevel(w.root)
+                toplevel.title("Warning")
+                txt = tk.Text(toplevel)
+                txt.insert("1.0", "File cannot run.")
+                toplevel.geometry("215x50")
+                toplevel.resizable(False, False)
+                txt.config(state=tk.DISABLED)
+                txt.pack()
         except AttributeError:
             return
 
