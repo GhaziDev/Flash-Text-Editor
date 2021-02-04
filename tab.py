@@ -31,6 +31,7 @@ class Tab:
         return self.txt, self.notebook
 
     def indentation(self, event):
+        self.txt=self.txt_collection[self.notebook.index(self.notebook.select())] #most important change.
         try:
             pos = self.txt.index(tk.INSERT)
             line, column = (num for num in pos.split("."))
