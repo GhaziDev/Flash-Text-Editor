@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from textconfig import txtconfig
+from customtext import CustomText
 
 
 class Tab:
@@ -9,11 +10,11 @@ class Tab:
         self.txt_collection = []
 
     def add_tab(self, title):
-        frame = tk.Frame(self.notebook)
+        frame = tk.Frame(self.notebook, borderwidth=0, highlightthickness=0)
         self.vertical_scrollbar = tk.Scrollbar(frame)
 
         self.notebook.add(frame, text=title)
-        self.txt = tk.Text(
+        self.txt = CustomText(
             frame,
             undo=True,
             insertbackground=txtconfig.insertbackground,
@@ -22,8 +23,8 @@ class Tab:
             selectbackground=txtconfig.selectbackground,
             yscrollcommand=self.vertical_scrollbar.set,
         )
-        self.vertical_scrollbar.config(command=self.txt.yview)
-        self.vertical_scrollbar.pack(fill="both", expand="yes", side=tk.RIGHT)
+        self.vertical_scrollbar.config(command=self.txt.yview, width=10)
+        self.vertical_scrollbar.pack(fill="both", side=tk.RIGHT)
         self.txt.focus_set()
         self.txt.config(font=(txtconfig.font_family, txtconfig.font_size))
         self.txt_collection.append(self.txt)
@@ -31,7 +32,10 @@ class Tab:
         return self.txt, self.notebook
 
     def indentation(self, event):
-        self.txt=self.txt_collection[self.notebook.index(self.notebook.select())] #most important change.
+
+        self.txt = self.txt_collection[
+            self.notebook.index(self.notebook.select())
+            ]
         try:
             pos = self.txt.index(tk.INSERT)
             line, column = (num for num in pos.split("."))
