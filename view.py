@@ -33,7 +33,11 @@ class View:
 
     def set_size_command(self):
         self.font_size.add_radiobutton(
-            label="15px(Default)",
+            label="12px(Default)",
+            command=lambda: self.size_and_family(txtconfig.font_family, 12),
+        )
+        self.font_size.add_radiobutton(
+            label="15px",
             command=lambda: self.size_and_family(txtconfig.font_family, 15),
         )
         self.font_size.add_radiobutton(
