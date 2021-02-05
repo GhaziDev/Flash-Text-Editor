@@ -47,7 +47,7 @@ class File:
                 mode="r",
                 initialdir="/",
                 title="Select A File",
-                filetype=(("files", "*.txt"), ("all files", "*.*")),
+                filetypes=(("files", "*.txt"), ("all files", "*.*")),
             )
             filename = os.path.basename(self.f.name)
             txt, tb = w.tab.add_tab(f"{filename}")
