@@ -13,7 +13,7 @@ class Window:
             text="Create new file",
         )
         self.tab = Tab(self.root)
-        self.txt, self.tb = self.tab.add_tab("Untitled")
+        self.txt, self.tb = self.tab.add_tab("untitled")
         self.height, self.width = (
             self.root.winfo_reqheight(),
             self.root.winfo_reqwidth(),
@@ -52,7 +52,7 @@ class Window:
                         anchor=tk.E,
                     )
                 self.root.update()
-            except tk.TclError:
+            except (tk.TclError, ValueError):
                 break
 
 
