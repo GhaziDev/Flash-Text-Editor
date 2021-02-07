@@ -10,7 +10,7 @@ class TextConfig:
         self.foreground = "white"
         self.selectbackground = "blue"
         self.font_family = "Consolas"
-        self.font_size = 15
+        self.font_size = 12
 
 
 txtconfig = TextConfig()
