@@ -70,7 +70,7 @@ class File:
                     defaultextension=".txt",
                     initialdir="/",
                     title="Select A File",
-                    filetype=(
+                    filetypes=(
                         ("text", "*.txt"),
                         ("python", "*.py"),
                         ("all files", "*.*"),
